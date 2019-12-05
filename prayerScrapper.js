@@ -1,7 +1,7 @@
 const cheerio = require('cheerio');
 const axios = require('axios');
 const siteUrl = 'https://us.mohid.co/tx/dallas/iccltx/masjid/widget/api/index/?m=prayertimings&wmode=opaque';
-const prayers = ['Fajar', 'Duhar', 'Asr', 'Maghrib', 'Isha', "Khutbah"]
+const prayers = ['Fajar', 'Duhar', 'Asr', 'Maghrib', 'Isha', ""]
 
 const fetchData = async () => {
     const result = await axios.get(siteUrl);
@@ -27,12 +27,11 @@ const getResults = async () => {
 
     });
 
-    khutbah = {
-        prayer: "Khutbah",
-        iqama: "2:30 PM"
-    }
-
-    prayer_times.push(khutbah);
+    prayer_times.push({
+        name: "Khutbah",
+        iqama: "2:30 PM",
+        azaan: "2:00 PM"
+    });
     return {
         prayers: prayer_times,
         title: title
