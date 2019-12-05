@@ -1,8 +1,8 @@
 body {
   padding: 50px;
   font: "Lucida Grande", Helvetica, Arial, sans-serif;
-  font-size: auto;
   text-shadow: 1px 0 0;
+  font-size: 42px;
   background: url(../images/pattern.png) top left repeat;
 }
 h1, #clock{
