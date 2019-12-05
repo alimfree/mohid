@@ -2,4 +2,15 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  .table-container(role="table", aria-lable="Prayer Times")
+   .flex-table.header(role="rowgroup")
+    .flex-row(role="columnheader")= "Salah"
+    .flex-row(role="columnheader")= "Azaan"
+    .flex-row(role="columnheader")= "Iqama"
+
+   each prayer in prayers
+    if prayer['name']
+      .flex-table.row(role="rowgroup")
+       .flex-row(role="cell")= prayer['name']
+       .flex-row.first(role="cell")= prayer['azaan']
+       .flex-row(role="cell")= prayer['iqama']

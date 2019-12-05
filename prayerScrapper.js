@@ -2,7 +2,6 @@ const cheerio = require('cheerio');
 const axios = require('axios');
 const siteUrl = 'https://us.mohid.co/tx/dallas/iccltx/masjid/widget/api/index/?m=prayertimings&wmode=opaque';
 const prayers = ['Fajar', 'Duhar', 'Asr', 'Maghrib', 'Isha', "Khutbah"]
-const prayer_times = new Set();
 
 const fetchData = async () => {
     const result = await axios.get(siteUrl);
@@ -10,25 +9,30 @@ const fetchData = async () => {
 };
 
 const getResults = async () => {
+    let prayer_times = [];
     const $ = await fetchData();
     const title = 'ICC Masjid Prayer Schedule';
-    console.log($(".prayer .list ul li").length)
     $(".prayer .list ul li").each((index, element) => {
-        if(index == 0){
-            console.log($('.prayer .list ul li:nth-child('+index +')').text());
-        }
-
-        let prayeName = ""
-        prayerName = $('.prayer .list ul li:nth-child('+index +')').text().split(' ')[0].replace(/[^A-Za-z]/g, "");
+        index = index + 1;
+        let prayeName = "";
+        prayerName = $('.prayer .list ul > li:nth-child('+index  +')').text().split(' ')[0].replace(/[^A-Za-z]/g, "");
         let prayer = {
-            prayer: prayerName,
-            iqama: $('.prayer .list ul li:nth-child('+index +') .prayer_iqama_div').text(),
-            azaan: $('.prayer .list ul li:nth-child('+index +') .prayer_azaan_div').text()
+            name: prayerName,
+            iqama: $('.prayer .list ul > li:nth-child('+index +') .prayer_iqama_div').text().replace(/^0+/, ''),
+            azaan: $('.prayer .list ul > li:nth-child('+index +') .prayer_azaan_div').text().replace(/^0+/, '')
         };
-        prayer_times.add(prayer);
+        if(prayerName){
+            prayer_times.push(prayer);
+        }
 
     });
 
+    khutbah = {
+        prayer: "Khutbah",
+        iqama: "2:30 PM"
+    }
+
+    prayer_times.push(khutbah);
     return {
         prayers: prayer_times,
         title: title

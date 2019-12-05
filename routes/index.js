@@ -7,9 +7,7 @@ router.get("/", async function(req, res, next) {
   //const result = await getResults();
   title = "Prayer Schedule"
   result = await getResults();
-  console.log("restu");
-  console.log(result);
-  res.render("index");
+  res.render("index", result);
 });
 
 module.exports = router;
