@@ -12,7 +12,7 @@ const getResults = async () => {
     let prayer_times = [];
     const $ = await fetchData();
     const title = 'ICC Masjid Prayer Schedule';
-    $(".prayer .list ul li").each((index, element) => {
+    $(".prayer .list ul > li").each((index, element) => {
         index = index + 1;
         let prayeName = "";
         prayerName = $('.prayer .list ul > li:nth-child('+index  +')').text().split(' ')[0].replace(/[^A-Za-z]/g, "");
@@ -21,6 +21,7 @@ const getResults = async () => {
             iqama: $('.prayer .list ul > li:nth-child('+index +') .prayer_iqama_div').text().replace(/^0+/, ''),
             azaan: $('.prayer .list ul > li:nth-child('+index +') .prayer_azaan_div').text().replace(/^0+/, '')
         };
+
         if(prayerName){
             prayer_times.push(prayer);
         }

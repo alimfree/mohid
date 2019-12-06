@@ -1,14 +1,15 @@
 extends layout
 
-
 block content
   .logo
-  #clock="&nbsp;"
+  .dates
+    #islamic-date &nbsp;
+    #clock &nbsp;
   .table-container(role="table", aria-lable="Prayer Times")
    .flex-table.header(role="rowgroup")
-    .flex-row(role="columnheader")= "Salah"
-    .flex-row(role="columnheader")= "Azaan"
-    .flex-row(role="columnheader")= "Iqama"
+    .flex-row(role="columnheader") Salah
+    .flex-row(role="columnheader") Azaan
+    .flex-row(role="columnheader") Iqama
 
    each prayer in prayers
     if prayer['name']
