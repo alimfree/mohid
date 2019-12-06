@@ -6,18 +6,16 @@ prayer times on monitors in the prayer hall.
 
 ## Languages and Tools
  - Javascript
- - Node - for serving files
- - Express - for routing
+ - Node.js as web server 
+ - Express as web framework
  - Jade for templating
  - Cheerio for scrapping
  - Axios for http request handling
 
 ## Installation
   - [Install node](https://nodejs.org/en/download/)
-  - Install dependencies
-    `$ npm install`
-  - Run app
-    `$ node app.js`
+  - Install dependencies `$ npm install`
+  - Run app `$ node app.js`
 
 
 ## License
