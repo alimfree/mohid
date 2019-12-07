@@ -30,8 +30,8 @@ const getResults = async () => {
 
     prayer_times.push({
         name: "Khutbah",
-        iqama: "2:30 PM",
-        azaan: "2:00 PM"
+        iqama: "2:50 PM",
+        azaan: "2:30 PM"
     });
     return {
         prayers: prayer_times,

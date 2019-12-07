@@ -1,22 +1,9 @@
-/* heebo-regular - latin */
-@font-face {
-  font-family: 'Heebo';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/heebo-v5-latin-regular.eot'); /* IE9 Compat Modes */
-  src: local('Heebo'), local('Heebo-Regular'),
-  url('../fonts/heebo-v5-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('../fonts/heebo-v5-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-  url('../fonts/heebo-v5-latin-regular.woff') format('woff'), /* Modern Browsers */
-  url('../fonts/heebo-v5-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-  url('../fonts/heebo-v5-latin-regular.svg#Heebo') format('svg'); /* Legacy iOS */
-}
-
 body {
   padding: 50px;
-  font-family: "heebo";
+  font-family: "Times New Roman", Times, serif;;
   text-shadow: 1px 0 0;
   font-size: 90px;
+  background-color: rgb(216, 216, 216);
 }
 h1, .dates {
   text-align: center;
@@ -55,14 +42,14 @@ a {
 
 
 .flex-table:first-of-type .flex-row {
-  background: rgba(10, 40, 66);
+  background: rgba(77, 116, 189);
   color: white;
   border-color: #1976D2;
 }
 
-.flex-table:nth-of-type(2n) .flex-row{
+.flex-table .flex-row{
   color: black;
-  background-color: rgb(237, 237, 237);
+  background-color: rgb(147, 170, 214);
 
 }
 
@@ -70,7 +57,9 @@ a {
 .flex-row {
   flex: 10;
   padding: 60px;
-
 }
 
+.flex-table.row {
+  margin-bottom: 10%;
+}
 
