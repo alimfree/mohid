@@ -2,7 +2,7 @@ body {
   padding: 50px;
   font-family: "Times New Roman", Times, serif;;
   text-shadow: 1px 0 0;
-  font-size: 110px;
+  font-size: 80px;
   background-color: rgb(216, 216, 216);
 }
 h1, .dates {
@@ -12,11 +12,11 @@ h1, .dates {
 }
 
 #clock {
-    font-size: 150px;
+    font-size: 120px;
 }
 
 .period {
-    font-size: 50px;
+    font-size: 35px;
 }
 
 .logo {
