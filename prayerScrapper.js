@@ -18,8 +18,8 @@ const getResults = async () => {
         prayerName = $('.prayer .list ul > li:nth-child('+index  +')').text().split(' ')[0].replace(/[^A-Za-z]/g, "");
         let prayer = {
             name: prayerName,
-            iqama: $('.prayer .list ul > li:nth-child('+index +') .prayer_iqama_div').text().replace(/^0+/, ''),
-            azaan: $('.prayer .list ul > li:nth-child('+index +') .prayer_azaan_div').text().replace(/^0+/, '')
+            iqama: $('.prayer .list ul > li:nth-child('+index +') .prayer_iqama_div').text().replace(/^0+/, '').split(" "),
+            azaan: $('.prayer .list ul > li:nth-child('+index +') .prayer_azaan_div').text().replace(/^0+/, '').split(" ")
         };
 
         if(prayerName){
@@ -30,8 +30,8 @@ const getResults = async () => {
 
     prayer_times.push({
         name: "Khutbah",
-        iqama: "2:50 PM",
-        azaan: "2:30 PM"
+        iqama: ["2:50", "PM"],
+        azaan: ["2:30", "PM"]
     });
     return {
         prayers: prayer_times,

@@ -1,15 +1,27 @@
 function updateClock() {
     date = new Date();
 
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    var timeString = hours + ':' + minutes + ' ' + ampm;
+    document.getElementById("clock").firstChild.nodeValue = timeString;
+    updateIslamicDate();
+    updateDate();
+};
+
+function updateDate(){
     weekdayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     var dateString = weekdayNames[date.getDay()] + " "
-        + date.getHours() + ":" + ("00" + date.getMinutes()).slice(-2) + ":" + date.getSeconds() + " "
-         + monthNames[date.getMonth()] + ", " + date.getDate() + " " + date.getFullYear();
+        + monthNames[date.getMonth()] + ", " + date.getDate() + " " + date.getFullYear();
 
-    document.getElementById("clock").firstChild.nodeValue = dateString;
+    document.getElementById("date").firstChild.nodeValue = dateString;
     updateIslamicDate();
-};
+}
 
 function updateIslamicDate(){
     document.getElementById('islamic-date').firstChild.nodeValue  =  writeIslamicDate();

@@ -2,13 +2,21 @@ body {
   padding: 50px;
   font-family: "Times New Roman", Times, serif;;
   text-shadow: 1px 0 0;
-  font-size: 90px;
+  font-size: 110px;
   background-color: rgb(216, 216, 216);
 }
 h1, .dates {
   text-align: center;
   margin-bottom: 40px;
-  font-size: 60px;
+  font-size: 70px;
+}
+
+#clock {
+    font-size: 100px;
+}
+
+.period {
+    font-size: 50px;
 }
 
 .logo {
@@ -22,7 +30,6 @@ h1, .dates {
 a {
   color: #00B7FF;
 }
-
 
 .table-container {
   width: 100%;
@@ -50,9 +57,7 @@ a {
 .flex-table .flex-row{
   color: black;
   background-color: rgb(147, 170, 214);
-
 }
-
 
 .flex-row {
   flex: 10;
@@ -60,6 +65,6 @@ a {
 }
 
 .flex-table.row {
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 
