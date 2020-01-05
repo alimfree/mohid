@@ -1,8 +1,8 @@
 body {
-  padding: 50px;
+  padding: 0 50px;
   font-family: "Times New Roman", Times, serif;;
   text-shadow: 1px 0 0;
-  font-size: 70px;
+  font-size: 75px;
   background-color: rgb(216, 216, 216);
 }
 h1, .dates {
@@ -62,10 +62,10 @@ a {
 
 .flex-row {
   flex: 10;
-  padding: 60px;
+  padding: 30px;
 }
 
 .flex-table.row {
-  margin-bottom: 5%;
+  margin-bottom: 2%;
 }
 
