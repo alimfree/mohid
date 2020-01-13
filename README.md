@@ -1,7 +1,7 @@
 # Mohid Prayer Times Scrapper
 
 
-This is app scrapes Mohid prayer widget for prayer schedules. Developed for Islamic Center of Coppell to display
+This app scrapes Mohid prayer widget for prayer schedules. Developed for Islamic Center of Coppell to display
 prayer times on monitors in the prayer hall.
 
 ## Languages and Tools
