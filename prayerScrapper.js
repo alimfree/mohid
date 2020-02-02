@@ -25,8 +25,9 @@ const getResults = async () => {
     $(".prayer .list ul > li").each((index, element) => {
         index = index + 1;
         let prayeName = "";
+        prayerName = formatName($, index)
         let prayer = {
-            name: formatName($, index),
+            name: prayerName,
             iqama: formatIqama($, index),
             azaan: formatAzaan($, index)
         };
