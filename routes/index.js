@@ -10,4 +10,11 @@ router.get("/", async function(req, res, next) {
   res.render("index", result);
 });
 
+router.get("/events", async function(req, res, next) {
+  //const result = await getResults();
+  title = "ICC Masjid Events"
+  result = await getResults();
+  res.render("events", result);
+});
+
 module.exports = router;

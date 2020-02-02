@@ -7,18 +7,28 @@ const fetchData = async () => {
     return cheerio.load(result.data);
 };
 
+const formatName = ($, element) => {
+ return $('.prayer .list ul > li:nth-child('+element+')').text().split(' ')[0].replace(/[^A-Za-z]/g, "");
+};
+
+const formatIqama = ($, element) => {
+   return $('.prayer .list ul > li:nth-child('+element+') .prayer_iqama_div').text().replace(/^0+/, '').split(" ")
+}
+
+const formatAzaan = ($, element) => {
+    return $('.prayer .list ul > li:nth-child('+element+') .prayer_azaan_div').text().replace(/^0+/, '').split(" ")
+}
+
 const getResults = async () => {
     let prayer_times = [];
     const $ = await fetchData();
-    const title = 'ICC Masjid Prayer Schedule';
     $(".prayer .list ul > li").each((index, element) => {
         index = index + 1;
         let prayeName = "";
-        prayerName = $('.prayer .list ul > li:nth-child('+index  +')').text().split(' ')[0].replace(/[^A-Za-z]/g, "");
         let prayer = {
-            name: prayerName,
-            iqama: $('.prayer .list ul > li:nth-child('+index +') .prayer_iqama_div').text().replace(/^0+/, '').split(" "),
-            azaan: $('.prayer .list ul > li:nth-child('+index +') .prayer_azaan_div').text().replace(/^0+/, '').split(" ")
+            name: formatName($, index),
+            iqama: formatIqama($, index),
+            azaan: formatAzaan($, index)
         };
 
         if(prayerName){
@@ -34,7 +44,6 @@ const getResults = async () => {
     });
     return {
         prayers: prayer_times,
-        title: title
     };
 };
 
