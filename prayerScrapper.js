@@ -23,8 +23,9 @@ const getResults = async () => {
     let prayer_times = [];
     const $ = await fetchData();
     $(".prayer .list ul > li").each((index, element) => {
-        index = index + 1;
-        let prayeName = "";
+        index = index + 2;
+        console.log(element);
+        console.log('herro');
         prayerName = formatName($, index)
         let prayer = {
             name: prayerName,
@@ -38,11 +39,6 @@ const getResults = async () => {
 
     });
 
-    prayer_times.push({
-        name: "Khutbah",
-        iqama: ["2:50", "PM"],
-        azaan: ["2:30", "PM"]
-    });
     return {
         prayers: prayer_times,
     };

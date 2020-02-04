@@ -17,6 +17,7 @@ block content
       .flex-table.row(role="rowgroup")
        .flex-row(role="cell")= prayer['name']
        .flex-row.first(role="cell")= prayer['azaan'][0]
-         span.period= " " + prayer['azaan'][1]
+         if prayer['azaan'][1]
+           span.period= " " + prayer['azaan'][1]
        .flex-row(role="cell")= prayer['iqama'][0]
          span.period= " " + prayer['iqama'][1]
