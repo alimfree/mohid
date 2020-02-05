@@ -23,9 +23,9 @@ const getResults = async () => {
     let prayer_times = [];
     const $ = await fetchData();
     $(".prayer .list ul > li").each((index, element) => {
-        index = index + 2;
-        console.log(element);
-        console.log('herro');
+        if(index == 0){
+            index = 7;
+        }
         prayerName = formatName($, index)
         let prayer = {
             name: prayerName,
@@ -36,7 +36,10 @@ const getResults = async () => {
         if(prayerName){
             prayer_times.push(prayer);
         }
-
+        if(index == 7){
+            index = 0;
+        }
+        index = index + 1;
     });
 
     return {
