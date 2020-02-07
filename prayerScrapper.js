@@ -12,11 +12,17 @@ const formatName = ($, element) => {
 };
 
 const formatIqama = ($, element) => {
-   return $('.prayer .list ul > li:nth-child('+element+') .prayer_iqama_div').text().replace(/^0+/, '').split(" ")
+   return $('.prayer .list ul > li:nth-child('+element+') .prayer_iqama_div').text().trim().replace(/^0+/, '').split(" ")
 }
 
 const formatAzaan = ($, element) => {
     return $('.prayer .list ul > li:nth-child('+element+') .prayer_azaan_div').text().replace(/^0+/, '').split(" ")
+}
+
+const orderPrayers = (prayer_times) => {
+  let first = prayer_times.splice(0,1);
+  prayer_times.push(first[0]);
+  return prayer_times;
 }
 
 const getResults = async () => {
@@ -43,7 +49,7 @@ const getResults = async () => {
     });
 
     return {
-        prayers: prayer_times,
+        prayers: orderPrayers(prayer_times),
     };
 };
 
