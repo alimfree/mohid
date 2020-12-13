@@ -48,9 +48,23 @@ const getResults = async () => {
         index = index + 1;
     });
 
-    return {
+    displaySecondJummah = process.env.SECOND_JUMMAH
+    prayers = {
         prayers: orderPrayers(prayer_times),
     };
+
+
+    if(displaySecondJummah) {
+      secondJummah = {
+        name: 'Khutbah 2',
+        iqama: [ '2:30', 'PM' ],
+        azaan: ''
+      }
+      prayers['prayers'].push(secondJummah);
+    }
+
+    return prayers
+
 };
 
 module.exports = getResults;
