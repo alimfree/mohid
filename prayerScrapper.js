@@ -57,7 +57,7 @@ const getResults = async () => {
     if(displaySecondJummah) {
       secondJummah = {
         name: 'Khutbah 2',
-        iqama: [ '4:30', 'PM' ],
+        iqama: [ '4:15', 'PM' ],
         azaan: ''
       }
       prayers['prayers'].push(secondJummah);
