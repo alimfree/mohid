@@ -19,50 +19,18 @@ const formatAzaan = ($, element) => {
     return $('.prayer .list ul > li:nth-child('+element+') .prayer_azaan_div').text().replace(/^0+/, '').split(" ")
 }
 
-const orderPrayers = (prayer_times) => {
-  let first = prayer_times.splice(0,1);
-  prayer_times.push(first[0]);
-  return prayer_times;
-}
-
 const getResults = async () => {
     let prayer_times = [];
     const $ = await fetchData();
-    $(".prayer .list ul > li").each((index, element) => {
-        if(index == 0){
-            index = 7;
-        }
+    for(index = 0; index < (".prayer ul li").length - 1; index++) {
+        if(formatIqama($, index).length == 0) { index = index + 1 }
         prayerName = formatName($, index)
-        let prayer = {
-            name: prayerName,
-            iqama: formatIqama($, index),
-            azaan: formatAzaan($, index)
-        };
-
-        if(prayerName){
-            prayer_times.push(prayer);
-        }
-        if(index == 7){
-            index = 0;
-        }
-        index = index + 1;
-    });
-
-    displaySecondJummah = process.env.SECOND_JUMMAH
-    prayers = {
-        prayers: orderPrayers(prayer_times),
+        let prayer = { name: prayerName, iqama: formatIqama($, index), azaan: formatAzaan($, index) };
+        if(prayerName){ prayer_times.push(prayer); }
     };
-
-
-    if(displaySecondJummah) {
-      secondJummah = {
-        name: 'Khutbah 2',
-        iqama: [ '4:15', 'PM' ],
-        azaan: ''
-      }
-      prayers['prayers'].push(secondJummah);
-    }
-
+    prayers = {
+        prayers: prayer_times,
+    };
     return prayers
 
 };
